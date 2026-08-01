@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    background-color: #EEF2FF;
+    padding: 40px 20px;
+    
+}
+#logo{
+    text-align: center;
+    color: #6C63FF;
+}
+#quote{
+    text-align: center;
+    color: #64748B;
+}
+#cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    box-shadow: 0px 8px 20px rgba(108,99,255,0.15);
+    border-radius:18px;
+    padding:20px;
+    width:220px;
+    height:130px;
+    justify-content: center;
+    align-items: center;
+}
