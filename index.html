@@ -7,25 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="logo">StudyFlow</h1>
-    <p id="quote">Every Small Progress Counts</p>
-    <div id="cards">
-        <div class="card">
-            <h3>Daily Tasks</h3>
-            <p>Pending: 0</p>
-        </div>
-        <div class="card">
-            <h3>Exam Tracker</h3>
-            <p>No upcoming exams</p>
-        </div>
-        <div class="card">
-            <h3>Weekly Goals</h3>
-            <p>Set Goal</p>
-        </div>
-        <div class="card">
-            <h3>Progress</h3>
-            <p>0%</p>
+    <div id="dashboard">
+        <h1 id="logo">StudyFlow</h1>
+        <p id="quote">Every Small Progress Counts</p>
+        <div id="cards">
+            <div class="card" id="dailyTaskCard">
+                <h3>Daily Tasks</h3>
+                <p>Pending: 0</p>
+            </div>
+            <div class="card">
+                <h3>Exam Tracker</h3>
+                <p>No upcoming exams</p>
+            </div>
+            <div class="card">
+                <h3>Weekly Goals</h3>
+                <p>Set Goal</p>
+            </div>
+            <div class="card">
+                <h3>Progress</h3>
+                <p>0%</p>
+            </div>
         </div>
     </div>
+    <div id="dailyTasks">
+        <h2>Daily Tasks</h2>
+        <input type="text" id="taskInput"><br><br>
+        <button id="addButton">＋ Add</button><br><br>
+        <div id="taskList"></div>
+        <button id="backButton">← Back</button>
+    </div>
 </body>
+<script src="script.js"></script>
 </html>
