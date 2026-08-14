@@ -1,3 +1,4 @@
+// Selecting Elements
 const dailyTaskCard=document.getElementById('dailyTaskCard');
 const dailyTasks=document.getElementById('dailyTasks')
 const dashboard=document.getElementById('dashboard')
@@ -9,13 +10,16 @@ const pendingCount=document.getElementById("pendingCount")
 const completedCount=document.getElementById("completedCount")
 const pendingTaskCard=document.getElementById("pendingTaskCard");
 
+//Local Storage Array
 let taskArray=[];
 
+// conversion of tasks to Array
 const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 taskArray=savedTasks
 
 displayTasks()
 
+// EventListeners
 dailyTaskCard.addEventListener('click',dailyTaskCardClick)
 backButton.addEventListener('click',goBack)
 addButton.addEventListener('click',addTask)
@@ -26,6 +30,7 @@ inputTask.addEventListener('keydown',function(event){
     }
 })
 
+// Count pending and Completed Tasks
 function updateTask(){
     let completedTask=0;
     let pendingTask=0;
@@ -42,16 +47,20 @@ function updateTask(){
     completedCount.textContent=completedTask
     pendingCount.textContent=pendingTask
 }
+
+// To switch from Dashboard to Daily Tasks
 function dailyTaskCardClick(){
     dashboard.style.display="none"
     dailyTasks.style.display="flex"
 }
 
+// Back Key
 function goBack(){
     dailyTasks.style.display="none"
     dashboard.style.display="block"
 }
 
+// To add task to the checklist
 function addTask(){
     const input=inputTask.value;
     inputTask.value=""
@@ -77,21 +86,35 @@ function addTask(){
     updateTask()
 
     deleteSymbol.addEventListener('click',deleteTask)
+    checkbox.addEventListener('change',some)
 
-    function deleteTask(){
-        inputList.remove()
-        updateTask()
-    }
-
+    // Object to be aded to array
     const taskArrayObject={
         task:input,
         completed:checkbox.checked
     };
 
+    // To delete the task from Local Storage and UI
+    function deleteTask(){
+        inputList.remove()
+        taskArray=taskArray.filter((item)=>{
+            return item!==taskArrayObject
+        })
+
+        localStorage.setItem("tasks",JSON.stringify(taskArray))
+        updateTask()
+    }
+
+    function some(){
+        taskArrayObject.completed=checkbox.checked
+        localStorage.setItem("tasks",JSON.stringify(taskArray))
+    }
+
     taskArray.push(taskArrayObject)
     localStorage.setItem("tasks",JSON.stringify(taskArray))
 }
 
+// To display tasks from local Storage when page reloads
 function displayTasks(){
     taskArray.forEach((val)=>{
         const checkbox=document.createElement("input")
@@ -114,10 +137,21 @@ function displayTasks(){
         updateTask()
 
         deleteSymbol.addEventListener('click',deleteTask)
+        checkbox.addEventListener('change',someFunction)
 
         function deleteTask(){
             inputList.remove()
+            taskArray=taskArray.filter((item)=>{
+                return item!==val
+            })
+        
+            localStorage.setItem("tasks",JSON.stringify(taskArray))
             updateTask()
+        }
+
+        function someFunction(){
+            val.completed=checkbox.checked
+            localStorage.setItem("tasks",JSON.stringify(taskArray))
         }
     })
 }
