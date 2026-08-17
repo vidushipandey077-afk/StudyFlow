@@ -31,11 +31,13 @@
     </div>
     <div id="dailyTasks">
         <h2>Daily Tasks</h2>
-        <input type="text" id="taskInput" placeholder="Enter your Task"><br>
-        <button id="addButton">＋ Add</button><br>
-        <div id="taskList"></div>
-        <div class="status">Pending: <span id="pendingCount"></span></div>
-        <div class="status">Completed: <span id="completedCount"></span></div><br>
+        <div id="task-input-area">
+            <input type="text" id="taskInput" placeholder="Enter your Task">
+            <button id="addButton">＋ Add</button><br>
+        </div><br>
+        <div id="taskList"></div><br>
+        <div class="status" id="pending">Pending: <span id="pendingCount"></span></div>
+        <div class="status" id="completed">Completed: <span id="completedCount"></span></div><br>
         <button id="backButton">← Back</button>
     </div>
 </body>

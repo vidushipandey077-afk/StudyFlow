@@ -69,12 +69,14 @@ function addTask(){
     }
     const checkbox=document.createElement("input")
     checkbox.type="checkbox"
+    checkbox.classList.add("check-box")
 
     const typeTask=document.createElement("span")
     typeTask.textContent=input
 
     const deleteSymbol=document.createElement("span")
     deleteSymbol.textContent="🗑️"
+    deleteSymbol.classList.add("delete-button")
 
     const inputList=document.createElement("li")
 
@@ -119,6 +121,7 @@ function displayTasks(){
     taskArray.forEach((val)=>{
         const checkbox=document.createElement("input")
         checkbox.type="checkbox"
+        checkbox.classList.add("check-box")
         checkbox.checked=val.completed
 
         const typeTask=document.createElement("span")
@@ -126,6 +129,7 @@ function displayTasks(){
 
         const deleteSymbol=document.createElement("span")
         deleteSymbol.textContent="🗑️"
+        deleteSymbol.classList.add("delete-button")
 
         const inputList=document.createElement("li")
 
